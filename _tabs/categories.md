@@ -1,5 +1,14 @@
 ---
+title: Categories
+icon: fas fa-folder
+order: 3
 layout: categories
-icon: fas fa-stream
-order: 1
 ---
+
+The writing at SaltlightJournal moves through seasons.
+
+Some entries are soft.
+Some are fire.
+All of them are intentional.
+
+Browse by theme below.

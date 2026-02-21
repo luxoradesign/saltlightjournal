@@ -1,0 +1,17 @@
+/* Slightly widen content area for long-form writing */
+#main-wrapper {
+  max-width: 820px;
+}
+
+.nav-link {
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+h1 {
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}

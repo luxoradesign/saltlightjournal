@@ -6,11 +6,17 @@
         <a href="{{ '/' | relative_url }}">
           <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" style="max-width: 200px; height: auto;">
         </a>
+        <p
+          class="site-subtitle"
+          style="margin: 0.9rem 1.25rem 1.5rem; opacity: 0.9; font-size: 0.95rem; line-height: 1.55;"
+        >
+          Some days this is soft. Some days it's fire. Either way, it's honest - and it's written in paragraphs.
+        </p>
       </div>
     {% endif %}
 
     {% if site.tagline %}
-      <p class="site-subtitle fst-italic" style="margin-bottom: 2rem;">
+      <p class="site-subtitle" style="opacity: 0.85; font-size: 0.95rem;">
         {{ site.tagline }}
       </p>
     {% endif %}
@@ -20,8 +26,6 @@
   <nav class="nav flex-column" style="margin-top: 1.5rem;">
     <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
     <a class="nav-link" href="{{ '/categories/' | relative_url }}">Categories</a>
-    <a class="nav-link" href="{{ '/tags/' | relative_url }}">Tags</a>
-    <a class="nav-link" href="{{ '/archives/' | relative_url }}">Archives</a>
     <a class="nav-link" href="{{ '/about/' | relative_url }}">About</a>
   </nav>
 </div>

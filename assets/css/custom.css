@@ -7,3 +7,33 @@
 #sidebar .profile-wrapper {
   padding-top: 1.25rem;
 }
+
+/* SaltlightJournal: softness + fire, but controlled */
+#main-wrapper {
+  max-width: 820px;
+}
+
+.post-content,
+.content {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  letter-spacing: 0.1px;
+}
+
+/* Make headings feel less "tech blog" */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.2px;
+}
+
+/* Your "soft emphasis" moments */
+blockquote {
+  opacity: 0.95;
+  font-style: italic;
+}
+
+/* Calm hover */
+a:hover {
+  opacity: 0.85;
+}
