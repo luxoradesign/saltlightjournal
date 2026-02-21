@@ -1,10 +1,14 @@
-{% comment %}
-  SaltlightJournal custom sidebar override
-  Removes avatar circle and keeps title clean
-{% endcomment %}
-
 <div id="sidebar" class="d-flex flex-column">
   <div class="profile-wrapper text-center">
+    <!-- Optional logo (not circular) -->
+    {% if site.logo %}
+      <div class="site-logo" style="margin: 0 0 0.75rem 0;">
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" style="max-width: 180px; height: auto;">
+        </a>
+      </div>
+    {% endif %}
+
     <h1 class="site-title">
       <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
     </h1>
@@ -14,5 +18,12 @@
     {% endif %}
   </div>
 
-  {% include sidebar-nav.html %}
+  <!-- Sidebar navigation (manual, reliable) -->
+  <nav class="nav flex-column" style="margin-top: 1.5rem;">
+    <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
+    <a class="nav-link" href="{{ '/categories/' | relative_url }}">Categories</a>
+    <a class="nav-link" href="{{ '/tags/' | relative_url }}">Tags</a>
+    <a class="nav-link" href="{{ '/archives/' | relative_url }}">Archives</a>
+    <a class="nav-link" href="{{ '/about/' | relative_url }}">About</a>
+  </nav>
 </div>
