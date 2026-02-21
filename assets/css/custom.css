@@ -1,0 +1,9 @@
+/* Hide the empty circular avatar placeholder in the sidebar */
+#sidebar .profile-wrapper .avatar {
+  display: none !important;
+}
+
+/* Tighten spacing since we removed the avatar */
+#sidebar .profile-wrapper {
+  padding-top: 1.25rem;
+}

@@ -1,6 +1,6 @@
 ---
 title: "Welcome to SaltlightJournal"
-date: 2026-02-21 09:00:00 -0800
+date: 2026-02-21 00:30:00 -0800
 categories: [Journal]
 tags: [saltlight, healing, truth, boundaries]
 pin: true
