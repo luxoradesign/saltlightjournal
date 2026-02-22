@@ -36,8 +36,7 @@ social:
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Acacia Banting
   email: abanting23@proton.me
-  links:
-    - https://saltlightjournal.org
+  links: []
 
 # Site Verification Settings
 webmaster_verifications:
