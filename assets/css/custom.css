@@ -182,3 +182,20 @@ a:hover {
   margin-top: 10px;
   background: linear-gradient(to right, rgba(159, 180, 214, 0.9), transparent);
 }
+
+/* Editorial font pairing */
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: Fraunces, Georgia, serif;
+}
