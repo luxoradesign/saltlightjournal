@@ -3,7 +3,6 @@ title: "When Competence Becomes Camouflage"
 date: 2026-02-22
 categories: "Nervous System & Survival"
 tags: [emotional safety, survival mode, unseen women, erosion not explosion]
-pin: true
 ---
 
 I don't think people understand what it looks like when a high-functioning woman is breaking.
