@@ -65,3 +65,10 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
 }
+
+/* Sidebar tone refinement */
+.site-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
