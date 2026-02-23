@@ -53,7 +53,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-    id: abanting83
+    id: https://abanting83.goatcounter.com/count
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
