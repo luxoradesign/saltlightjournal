@@ -1,7 +1,7 @@
 ---
 title: "When Competence Becomes Camouflage"
 date: 2026-02-22
-categories: [NervousSystem] [Survival]
+categories: [Survival]
 tags: [emotional safety, survival mode, unseen women, erosion not explosion]
 ---
 

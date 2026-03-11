@@ -1,7 +1,7 @@
 ---
 title: "I Am Not Sure I Have Ever Seen Healthy Up Close"
 date: 2026-02-22
-categories: [Attachment] [Security]
+categories: [Attachment]
 tags: [relationship patterns, emotional safety, healing relationships, learning secure love]
 ---
 
