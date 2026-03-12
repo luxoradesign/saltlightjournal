@@ -3,7 +3,6 @@ title: "Welcome to SaltlightJournal"
 date: 2026-02-21
 categories: [Journal]
 tags: [saltlight, beginnings, clarity, becoming]
-pin: true
 ---
 
 There’s a certain kind of light that only shows up after something has ended.

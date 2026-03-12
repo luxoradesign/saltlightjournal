@@ -7,6 +7,7 @@ author: Acacia Banting
 categories: [Personal, Healing, Identity, Self-Discovery]
 tags: [personal essay, healing, grief, motherhood, creativity, music, family, faith, identity]
 excerpt: "There is a version of me people think they know, but functioning is not the same thing as being known."
+pin: true
 ---
 
 # Things I Wish People Knew About Me Before They Assumed They Did
