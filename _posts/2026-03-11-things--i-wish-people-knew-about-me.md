@@ -9,6 +9,8 @@ tags: [personal essay, healing, grief, motherhood, creativity, music, family, fa
 excerpt: "There is a version of me people think they know, but functioning is not the same thing as being known."
 ---
 
+### *I am not just what I've survived - I am what I kept creating, loving, and becoming anyway.*
+
 There is a version of me people think they know.
 
 It is the version that keeps going. The version that handles things. The version that pushes through, stays quiet when necessary, carries more than she should, and somehow still gets things done. It is the version people see when they catch me functioning.
