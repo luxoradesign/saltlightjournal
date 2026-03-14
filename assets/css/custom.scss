@@ -1,17 +1,336 @@
-/* Slightly widen content area for long-form writing */
-#main-wrapper {
-  max-width: 820px;
+---
+---
+
+/* =========================
+   Saltlight Journal Custom Theme
+   ========================= */
+
+/* ---------- Root Palette ---------- */
+:root {
+  --slj-bg: #faf6f1;
+  --slj-surface: #fffdf9;
+  --slj-surface-2: #f4ede5;
+  --slj-border: #e5d7c8;
+  --slj-text: #2e2925;
+  --slj-text-soft: #6e6258;
+  --slj-heading: #1f1a17;
+  --slj-accent: #b07a56;
+  --slj-accent-dark: #8e5f40;
+  --slj-accent-soft: #efe2d4;
+  --slj-shadow: 0 10px 30px rgba(31, 26, 23, 0.08);
+  --slj-radius-lg: 24px;
+  --slj-radius-md: 18px;
+  --slj-radius-sm: 12px;
+  --slj-max-width: 1200px;
 }
 
-.nav-link {
-  transition: opacity 0.2s ease;
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
 }
 
-.nav-link:hover {
-  opacity: 0.7;
+body {
+  background: linear-gradient(to bottom, #fcf9f5 0%, #f8f2eb 100%);
+  color: var(--slj-text);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.75;
 }
 
-h1 {
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#post-list .card-title,
+.post-tag,
+#page-category a,
+#page-tag a {
+  color: var(--slj-heading);
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+/* Links */
+a {
+  color: var(--slj-accent-dark);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--slj-accent);
+  text-decoration: none;
+}
+
+/* Main content containers */
+#main-wrapper,
+#sidebar,
+#topbar-wrapper,
+#tail-wrapper {
+  background: transparent;
+}
+
+/* ---------- Sidebar ---------- */
+#sidebar {
+  background: rgba(255, 253, 249, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(229, 215, 200, 0.6);
+}
+
+#sidebar .site-title,
+#sidebar .site-subtitle,
+#sidebar ul li a {
+  color: var(--slj-heading) !important;
+}
+
+#sidebar .site-subtitle {
+  color: var(--slj-text-soft) !important;
+  font-style: italic;
+}
+
+/* ---------- Topbar ---------- */
+#topbar-wrapper {
+  background: rgba(250, 246, 241, 0.82) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229, 215, 200, 0.75);
+}
+
+/* ---------- Homepage Hero ---------- */
+.slj-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(250, 246, 241, 0.88), rgba(250, 246, 241, 0.9)),
+    url('/assets/img/hero-journal.png') center/cover no-repeat;
+  border: 1px solid var(--slj-border);
+  border-radius: var(--slj-radius-lg);
+  padding: 4rem 2rem;
+  margin: 1rem 0 2rem;
+  box-shadow: var(--slj-shadow);
+}
+
+.slj-hero__content {
+  max-width: 780px;
+}
+
+.slj-hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: var(--slj-accent-dark);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.slj-hero__title {
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.slj-hero__subtitle {
+  font-size: 1.08rem;
+  color: var(--slj-text-soft);
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+}
+
+.slj-hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
   font-weight: 600;
-  letter-spacing: -0.3px;
+  text-decoration: none !important;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--slj-accent-dark);
+  color: #fff !important;
+  border: 1px solid var(--slj-accent-dark);
+}
+
+.btn-primary:hover {
+  background: var(--slj-accent);
+  border-color: var(--slj-accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--slj-accent-dark) !important;
+  border: 1px solid var(--slj-accent-dark);
+}
+
+.btn-outline:hover {
+  background: var(--slj-accent-soft);
+}
+
+/* ---------- Intro Cards ---------- */
+.slj-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0 0 2.5rem;
+}
+
+.slj-intro-card {
+  background: rgba(255, 253, 249, 0.92);
+  border: 1px solid var(--slj-border);
+  border-radius: var(--slj-radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--slj-shadow);
+}
+
+.slj-intro-card h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.slj-intro-card p {
+  color: var(--slj-text-soft);
+  margin-bottom: 0;
+}
+
+/* ---------- Post List Cards ---------- */
+#post-list .card-wrapper,
+#post-list .card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#post-list > div,
+#post-list .card {
+  background: rgba(255, 253, 249, 0.95);
+  border: 1px solid var(--slj-border) !important;
+  border-radius: var(--slj-radius-md);
+  padding: 1.2rem 1.2rem 1rem;
+  margin-bottom: 1.4rem;
+  box-shadow: var(--slj-shadow);
+}
+
+#post-list .card-title {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+#post-list .card-text,
+#post-list .post-meta,
+#post-list .preview {
+  color: var(--slj-text-soft) !important;
+}
+
+/* ---------- Post Pages ---------- */
+article,
+.post,
+#tail-wrapper,
+#page-wrapper {
+  color: var(--slj-text);
+}
+
+.post-content,
+.content {
+  font-size: 1.05rem;
+}
+
+.post-content p,
+.content p {
+  margin-bottom: 1.25rem;
+}
+
+.post-content blockquote,
+.content blockquote {
+  background: var(--slj-accent-soft);
+  border-left: 4px solid var(--slj-accent);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--slj-radius-sm) var(--slj-radius-sm) 0;
+  color: var(--slj-heading);
+}
+
+/* ---------- Tables / Category / Tag Panels ---------- */
+.card,
+.panel,
+#access-lastmod,
+#access-tags,
+#access-categories {
+  background: rgba(255, 253, 249, 0.92) !important;
+  border: 1px solid var(--slj-border) !important;
+  border-radius: var(--slj-radius-md) !important;
+  box-shadow: var(--slj-shadow);
+}
+
+/* ---------- Footer ---------- */
+#tail-wrapper {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(229, 215, 200, 0.8);
+  color: var(--slj-text-soft);
+}
+
+/* ---------- Forms / Search ---------- */
+input,
+textarea,
+select {
+  background: #fffdf9 !important;
+  border: 1px solid var(--slj-border) !important;
+  border-radius: 12px !important;
+  color: var(--slj-text) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 3px rgba(176, 122, 86, 0.15) !important;
+  border-color: var(--slj-accent) !important;
+}
+
+/* ---------- Images ---------- */
+img {
+  border-radius: 14px;
+}
+
+/* ---------- Optional cleanup ---------- */
+/* Hide update/notice style boxes if they appear */
+.alert,
+.notice,
+.update-notice,
+#update-notice {
+  display: none !important;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 991.98px) {
+  .slj-hero {
+    padding: 3rem 1.25rem;
+  }
+
+  .slj-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slj-hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
 }
