@@ -1,8 +1,11 @@
 ---
 title: "When Competence Becomes Camouflage"
 date: 2026-02-22
-categories: [Survival]
+categories: [Becoming]
 tags: [emotional safety, survival mode, unseen women, erosion not explosion]
+image:
+  path: /assets/img/posts/competence-camouflage.png
+  alt: Woman holding a mask in a professional setting symbolizing competence used as emotional camouflage
 ---
 
 I don't think people understand what it looks like when a high-functioning woman is breaking.

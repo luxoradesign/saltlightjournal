@@ -3,8 +3,11 @@ layout: post
 title: "It Was Never My Job to Fix Everyone and Everything"
 subtitle: "When compassion turns into expectation, and being the strong one starts costing you pieces of yourself."
 date: 2026-03-12
-categories: [Boundaries, Emotional-Health, Self-Worth, Healing]
-tags: [boundaries, burnout, emotional labor, self-worth, healing, people-pleasing, mental health, personal growth]
+categories: [Healing]
+tags: [boundaries, emotional labor, healing, self-worth]
+image:
+  path: /assets/img/posts/fix-everyone.png
+  alt: Woman setting down a box of tools symbolizing letting go of the responsibility to fix everyone
 excerpt: "Some people get so used to you holding everything together that they stop seeing you as a human being with limits. They start seeing you as a solution. But caring about people and being responsible for everyone are not the same thing."
 meta_description: "A powerful personal blog post about boundaries, emotional burnout, and learning that it is not your job to fix everyone and everything."
 featured_quote: "I can care without carrying. I can love people without managing their lives for them."

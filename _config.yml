@@ -16,11 +16,10 @@ timezone: "America/Vancouver"
 
 title: SaltlightJournal
 
-tagline: "Honest writing about healing, boundaries, identity, and becoming."
-
+tagline: Honest writing about healing, truth, relationships, and becoming.
 description: >- # used by seo meta and the atom feed
-  A personal journal exploring healing, growth, relationships, self-worth,
-  truth, and everything we carry before we learn how to let it breathe.
+  A journal for emotionally honest writing about healing, boundaries,
+  identity, self-worth, growth, and all the quiet things we carry.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

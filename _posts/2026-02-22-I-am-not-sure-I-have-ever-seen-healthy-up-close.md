@@ -1,8 +1,11 @@
 ---
 title: "I Am Not Sure I Have Ever Seen Healthy Up Close"
 date: 2026-02-22
-categories: [Attachment]
-tags: [relationship patterns, emotional safety, healing relationships, learning secure love]
+categories: [Relationships]
+tags: [relationships, healthy love, healing, growth]
+image:
+  path: /assets/img/posts/healthy-up-close.png
+  alt: Woman watching a peaceful couple together in a sunlit park, symbolizing observing healthy love from the outside
 ---
 
 For most of my adult life, I’ve been able to explain what a secure relationship is supposed to look like.

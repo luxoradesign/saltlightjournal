@@ -1,58 +1,67 @@
 ---
 ---
 
-/* =========================
-   Saltlight Journal Custom Theme
-   ========================= */
-
-/* ---------- Root Palette ---------- */
 :root {
-  --slj-bg: #faf6f1;
-  --slj-surface: #fffdf9;
-  --slj-surface-2: #f4ede5;
-  --slj-border: #e5d7c8;
-  --slj-text: #2e2925;
-  --slj-text-soft: #6e6258;
-  --slj-heading: #1f1a17;
-  --slj-accent: #b07a56;
-  --slj-accent-dark: #8e5f40;
-  --slj-accent-soft: #efe2d4;
-  --slj-shadow: 0 10px 30px rgba(31, 26, 23, 0.08);
+  --slj-bg: #f8f3ed;
+  --slj-bg-soft: #fcfaf7;
+  --slj-surface: rgba(255, 252, 248, 0.92);
+  --slj-surface-strong: #fffdfb;
+  --slj-border: #e8ddd1;
+  --slj-text: #342d28;
+  --slj-text-soft: #6f6258;
+  --slj-heading: #211b18;
+  --slj-accent: #b4815d;
+  --slj-accent-dark: #936345;
+  --slj-accent-soft: #f1e3d6;
+  --slj-shadow: 0 14px 40px rgba(44, 34, 26, 0.08);
+  --slj-shadow-soft: 0 8px 24px rgba(44, 34, 26, 0.05);
+  --slj-radius-xl: 30px;
   --slj-radius-lg: 24px;
   --slj-radius-md: 18px;
   --slj-radius-sm: 12px;
-  --slj-max-width: 1200px;
+  --slj-content-width: 1200px;
 }
 
-/* ---------- Base ---------- */
+/* Base */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: linear-gradient(to bottom, #fcf9f5 0%, #f8f2eb 100%);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.55),
+      transparent 30%
+    ),
+    linear-gradient(to bottom, #fbf8f4 0%, #f4ede6 100%);
   color: var(--slj-text);
   font-family: Georgia, 'Times New Roman', serif;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
-/* Headings */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-#post-list .card-title,
-.post-tag,
-#page-category a,
-#page-tag a {
+#post-list .card-title {
   color: var(--slj-heading);
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
   letter-spacing: 0.01em;
 }
 
-/* Links */
+p,
+li,
+span,
+small,
+.post-meta,
+.preview,
+.card-text {
+  color: var(--slj-text-soft);
+}
+
 a {
   color: var(--slj-accent-dark);
   transition: all 0.2s ease;
@@ -63,98 +72,123 @@ a:hover {
   text-decoration: none;
 }
 
-/* Main content containers */
-#main-wrapper,
-#sidebar,
-#topbar-wrapper,
-#tail-wrapper {
-  background: transparent;
+img {
+  border-radius: 16px;
 }
 
-/* ---------- Sidebar ---------- */
+/* Main wrappers */
+#main-wrapper,
+#topbar-wrapper,
+#tail-wrapper {
+  background: transparent !important;
+}
+
+/* Sidebar */
 #sidebar {
-  background: rgba(255, 253, 249, 0.9) !important;
+  background: rgba(255, 251, 246, 0.9) !important;
   backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(229, 215, 200, 0.6);
+  border-right: 1px solid rgba(232, 221, 209, 0.85);
 }
 
 #sidebar .site-title,
 #sidebar .site-subtitle,
-#sidebar ul li a {
+#sidebar ul li a,
+#sidebar .nav-link,
+#sidebar .sidebar-bottom a {
   color: var(--slj-heading) !important;
 }
 
 #sidebar .site-subtitle {
   color: var(--slj-text-soft) !important;
   font-style: italic;
+  line-height: 1.5;
 }
 
-/* ---------- Topbar ---------- */
+#sidebar .avatar {
+  border-radius: 50%;
+  box-shadow: var(--slj-shadow-soft);
+}
+
+/* Topbar */
 #topbar-wrapper {
-  background: rgba(250, 246, 241, 0.82) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(229, 215, 200, 0.75);
+  background: rgba(248, 243, 237, 0.82) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(232, 221, 209, 0.9);
 }
 
-/* ---------- Homepage Hero ---------- */
+/* Hero */
 .slj-hero {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(rgba(250, 246, 241, 0.88), rgba(250, 246, 241, 0.9)),
-    url('/assets/img/hero-journal.png') center/cover no-repeat;
-  border: 1px solid var(--slj-border);
-  border-radius: var(--slj-radius-lg);
-  padding: 4rem 2rem;
+  padding: 5rem 2.5rem;
   margin: 1rem 0 2rem;
+  border-radius: var(--slj-radius-xl);
+  border: 1px solid var(--slj-border);
+  background:
+    linear-gradient(rgba(250, 245, 239, 0.82), rgba(250, 245, 239, 0.9)),
+    url('/assets/img/hero-journal.png') center center / cover no-repeat;
   box-shadow: var(--slj-shadow);
 }
 
-.slj-hero__content {
-  max-width: 780px;
+.slj-hero_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 250, 245, 0.18),
+    rgba(255, 250, 245, 0.06)
+  );
+  pointer-events: none;
 }
 
-.slj-hero__eyebrow {
+.slj-hero_content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.slj-hero_eyebrow,
+.slj-section-label,
+.slj-feature-card_label {
+  display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  font-weight: 700;
   color: var(--slj-accent-dark);
   margin-bottom: 1rem;
-  font-weight: 700;
 }
 
-.slj-hero__title {
-  font-size: clamp(2.3rem, 5vw, 4.2rem);
-  line-height: 1.1;
+.slj-hero_title {
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 1.08;
   margin-bottom: 1rem;
+  max-width: 720px;
 }
 
-.slj-hero__subtitle {
-  font-size: 1.08rem;
-  color: var(--slj-text-soft);
-  max-width: 700px;
-  margin-bottom: 1.5rem;
+.slj-hero_subtitle {
+  max-width: 650px;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  margin-bottom: 1.7rem;
 }
 
-.slj-hero__buttons {
+.slj-hero_buttons {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.9rem;
+  flex-wrap: wrap;
 }
 
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 0.85rem 1.45rem;
   border-radius: 999px;
-  padding: 0.8rem 1.4rem;
   font-weight: 600;
   text-decoration: none !important;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    border 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
@@ -173,7 +207,7 @@ a:hover {
 }
 
 .btn-outline {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.5);
   color: var(--slj-accent-dark) !important;
   border: 1px solid var(--slj-accent-dark);
 }
@@ -182,113 +216,200 @@ a:hover {
   background: var(--slj-accent-soft);
 }
 
-/* ---------- Intro Cards ---------- */
-.slj-intro-grid {
+/* Intro feature cards */
+.slj-feature-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
   margin: 0 0 2.5rem;
 }
 
-.slj-intro-card {
-  background: rgba(255, 253, 249, 0.92);
+.slj-feature-card {
+  background: var(--slj-surface);
   border: 1px solid var(--slj-border);
-  border-radius: var(--slj-radius-md);
-  padding: 1.5rem;
-  box-shadow: var(--slj-shadow);
+  border-radius: var(--slj-radius-lg);
+  padding: 1.6rem;
+  box-shadow: var(--slj-shadow-soft);
 }
 
-.slj-intro-card h2 {
+.slj-feature-card h2 {
   font-size: 1.35rem;
-  margin-bottom: 0.65rem;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
 }
 
-.slj-intro-card p {
-  color: var(--slj-text-soft);
+/* Start Here */
+.slj-start-here {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+  margin: 0 0 2.7rem;
+  padding: 2rem;
+  background: var(--slj-surface);
+  border: 1px solid var(--slj-border);
+  border-radius: var(--slj-radius-xl);
+  box-shadow: var(--slj-shadow-soft);
+}
+
+.slj-start-here h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.slj-start-here p:last-child {
   margin-bottom: 0;
 }
 
-/* ---------- Post List Cards ---------- */
-#post-list .card-wrapper,
-#post-list .card {
+.slj-start-here_links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.slj-start-link {
+  display: block;
+  padding: 1rem 1.1rem;
+  background: var(--slj-surface-strong);
+  border: 1px solid var(--slj-border);
+  border-radius: var(--slj-radius-md);
+  color: var(--slj-heading) !important;
+  box-shadow: var(--slj-shadow-soft);
+  font-weight: 600;
+}
+
+.slj-start-link:hover {
+  background: var(--slj-accent-soft);
+  transform: translateY(-1px);
+}
+
+/* Post cards on homepage */
+#post-list > div,
+#post-list .card,
+#post-list .card-wrapper {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-#post-list > div,
+#post-list > div {
+  margin-bottom: 1.6rem;
+}
+
+#post-list article,
 #post-list .card {
-  background: rgba(255, 253, 249, 0.95);
+  background: rgba(255, 252, 248, 0.95) !important;
   border: 1px solid var(--slj-border) !important;
-  border-radius: var(--slj-radius-md);
-  padding: 1.2rem 1.2rem 1rem;
-  margin-bottom: 1.4rem;
+  border-radius: var(--slj-radius-xl);
+  padding: 1.35rem;
   box-shadow: var(--slj-shadow);
+  overflow: hidden;
 }
 
 #post-list .card-title {
-  font-size: 1.6rem;
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
   line-height: 1.25;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.8rem;
 }
 
 #post-list .card-text,
-#post-list .post-meta,
 #post-list .preview {
-  color: var(--slj-text-soft) !important;
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
-/* ---------- Post Pages ---------- */
-article,
+#post-list .post-meta {
+  font-size: 0.92rem;
+  margin-top: 0.8rem;
+}
+
+#post-list img,
+.preview-img img,
+.card img {
+  border-radius: 18px;
+}
+
+/* Article pages */
 .post,
-#tail-wrapper,
-#page-wrapper {
+article,
+.content,
+.post-content {
   color: var(--slj-text);
 }
 
 .post-content,
 .content {
-  font-size: 1.05rem;
+  font-size: 1.07rem;
+  line-height: 1.95;
 }
 
 .post-content p,
 .content p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.content h1,
+.content h2,
+.content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .post-content blockquote,
 .content blockquote {
-  background: var(--slj-accent-soft);
+  background: #f5e8dc;
   border-left: 4px solid var(--slj-accent);
   padding: 1rem 1.25rem;
-  border-radius: 0 var(--slj-radius-sm) var(--slj-radius-sm) 0;
+  border-radius: 0 var(--slj-radius-md) var(--slj-radius-md) 0;
   color: var(--slj-heading);
 }
 
-/* ---------- Tables / Category / Tag Panels ---------- */
-.card,
-.panel,
-#access-lastmod,
-#access-tags,
-#access-categories {
-  background: rgba(255, 253, 249, 0.92) !important;
-  border: 1px solid var(--slj-border) !important;
-  border-radius: var(--slj-radius-md) !important;
-  box-shadow: var(--slj-shadow);
+.post-content blockquote p,
+.content blockquote p {
+  color: var(--slj-heading);
 }
 
-/* ---------- Footer ---------- */
+.post-tail-wrapper,
+.post-navigation,
+.share-wrapper,
+.related-posts,
+#toc-wrapper,
+#access-lastmod,
+#access-tags,
+#access-categories,
+.card {
+  background: var(--slj-surface) !important;
+  border: 1px solid var(--slj-border) !important;
+  border-radius: var(--slj-radius-lg) !important;
+  box-shadow: var(--slj-shadow-soft);
+}
+
+/* Footer */
 #tail-wrapper {
-  margin-top: 2rem;
-  border-top: 1px solid rgba(229, 215, 200, 0.8);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(232, 221, 209, 0.9);
   color: var(--slj-text-soft);
 }
 
-/* ---------- Forms / Search ---------- */
+/* Category/tag chips */
+.post-tag,
+.tag,
+.badge,
+.categories a,
+.tags a {
+  border-radius: 999px !important;
+}
+
+/* Inputs */
 input,
 textarea,
 select {
-  background: #fffdf9 !important;
+  background: #fffdfb !important;
   border: 1px solid var(--slj-border) !important;
   border-radius: 12px !important;
   color: var(--slj-text) !important;
@@ -297,17 +418,11 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-  box-shadow: 0 0 0 3px rgba(176, 122, 86, 0.15) !important;
   border-color: var(--slj-accent) !important;
+  box-shadow: 0 0 0 3px rgba(180, 129, 93, 0.15) !important;
 }
 
-/* ---------- Images ---------- */
-img {
-  border-radius: 14px;
-}
-
-/* ---------- Optional cleanup ---------- */
-/* Hide update/notice style boxes if they appear */
+/* Hide notices that look too theme-default */
 .alert,
 .notice,
 .update-notice,
@@ -315,22 +430,32 @@ img {
   display: none !important;
 }
 
-/* ---------- Mobile ---------- */
+/* Better spacing */
+main {
+  padding-top: 1rem;
+}
+
+/* Responsive */
 @media (max-width: 991.98px) {
   .slj-hero {
-    padding: 3rem 1.25rem;
+    padding: 3.3rem 1.4rem;
   }
 
-  .slj-intro-grid {
+  .slj-feature-row,
+  .slj-start-here {
     grid-template-columns: 1fr;
   }
 
-  .slj-hero__buttons {
+  .slj-hero_buttons {
     flex-direction: column;
     align-items: stretch;
   }
 
   .btn {
     width: 100%;
+  }
+
+  .slj-start-here {
+    padding: 1.5rem;
   }
 }

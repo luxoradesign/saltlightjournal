@@ -3,8 +3,11 @@ layout: post
 title: "You Cannot Force What Was Never Meant to Bloom"
 subtitle: "On chemistry, compatibility, and the quiet damage of trying to make something work that never truly fit"
 date: 2026-03-12
-categories: [Relationships, Healing, Self-Worth]
-tags: [chemistry, compatibility, relationships, healing, growth, self-trust]
+categories: [Healing, Relationships]
+tags: [letting go, relationships, growth, healing]
+image:
+  path: /assets/img/posts/never-meant-to-bloom.png
+  alt: Hands releasing a wilted rose growing through cracked earth symbolizing letting go of something that was never meant to flourish
 excerpt: "Sometimes the most loving thing you can do is stop trying to force what never truly fit. This is why I no longer believe in forcing chemistry, relationships, or connection that has to be dragged to stay alive."
 ---
 
