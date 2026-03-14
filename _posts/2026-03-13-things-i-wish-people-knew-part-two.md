@@ -6,7 +6,6 @@ date: 2026-03-13
 categories: [Personal, Healing, Life]
 tags: [trauma, healing, honesty, life story]
 excerpt: "Some truths take years to say out loud. This is one more piece of my story."
-featured: false
 ---
 
 > ⚠️ **Sensitive Content Warning:** This post mentions sexual assault, physical assault, harassment, trauma, and pregnancy loss.
