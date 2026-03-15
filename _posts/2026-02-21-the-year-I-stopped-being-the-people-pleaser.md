@@ -3,6 +3,8 @@ title: "The Year I Stopped Being a People Pleaser"
 date: 2026-02-21
 categories: [Healing, Boundaries]
 tags: [people pleasing, boundaries, self-worth]
+
+pin: true
 image:
   path: /assets/img/posts/people-pleaser.png
   alt: Woman releasing balloons into a golden sunset symbolizing letting go and reclaiming personal freedom

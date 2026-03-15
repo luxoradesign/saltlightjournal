@@ -1,26 +1,56 @@
 ---
 layout: default
 ---
-<article class="post">
-  <header class="post-header">
-    <h1>{{ page.title }}</h1>
+<article class="slj-article">
+  <header class="slj-article__hero">
+    <div class="slj-article__masthead">
+      <p class="slj-kicker">Essay • {{ page.date | date: '%B %-d, %Y' }}</p>
+      <h1 class="slj-article__title">{{ page.title }}</h1>
 
-    {% if page.subtitle %}
-      <p class="post-subtitle">{{ page.subtitle }}</p>
-    {% endif %}
+      {% if page.subtitle %}
+        <p class="slj-article__subtitle">{{ page.subtitle }}</p>
+      {% endif %}
 
-    {% if page.excerpt %}
-      <p class="post-excerpt">{{ page.excerpt }}</p>
-    {% endif %}
+      {% if page.excerpt %}
+        <p class="slj-article__excerpt">{{ page.excerpt }}</p>
+      {% endif %}
 
-    {% if page.featured_quote %}
-      <blockquote class="featured-quote">
-        {{ page.featured_quote }}
-      </blockquote>
+      {% if page.categories or page.tags %}
+        <div class="slj-article__taxonomies">
+          {% for category in page.categories %}
+            <a href="{{ '/categories/' | append: category | slugify | append: '/' | relative_url }}" class="slj-pill">
+              {{ category }}
+            </a>
+          {% endfor %}
+
+          {% for tag in page.tags %}
+            <a href="{{ '/tags/' | append: tag | slugify | append: '/' | relative_url }}" class="slj-pill">
+              {{ tag }}
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if page.image.path %}
+      <figure class="slj-article__figure">
+        <img src="{{ page.image.path | relative_url }}" alt="{{ page.image.alt | default: page.title }}">
+        {% if page.image.alt %}
+          <figcaption>{{ page.image.alt }}</figcaption>
+        {% endif %}
+      </figure>
     {% endif %}
   </header>
 
-  <div class="post-content">
-    {{ content }}
+  <div class="slj-article__body">
+    {% if page.featured_quote %}
+      <blockquote class="featured-quote">
+        <p>{{ page.featured_quote }}</p>
+      </blockquote>
+    {% endif %}
+
+    <div class="post-content">
+      {{ content }}
+    </div>
   </div>
 </article>

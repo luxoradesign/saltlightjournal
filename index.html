@@ -1,67 +1,160 @@
 ---
-layout: home
+layout: page
 title: Home
 ---
-<section class="slj-hero">
-  <div class="slj-hero__overlay"></div>
-  <div class="slj-hero__content">
-    <p class="slj-hero__eyebrow">Saltlight Journal</p>
-    <h1 class="slj-hero__title">A place for honest writing, healing, and becoming.</h1>
-    <p class="slj-hero__subtitle">
-      Thoughtful reflections on relationships, self-worth, boundaries, identity, grief, growth, and the quiet work of
-      becoming who you were always meant to be.
-    </p>
+{% assign featured_post = site.posts.first %}
+{% assign editorial_posts = site.posts | slice: 1, 3 %}
 
-    <div class="slj-hero__buttons">
-      <a href="/about/" class="btn btn-primary">Start Here</a>
-      <a href="/categories/" class="btn btn-outline">Browse Categories</a>
+<section class="slj-landing">
+  <div class="slj-landing__hero">
+    <div class="slj-landing__intro">
+      <p class="slj-kicker">Issue 01 • Saltlight Journal</p>
+      <h1>Essays for the tender, sharp, unfinished work of becoming.</h1>
+      <p class="slj-landing__dek">
+        Saltlight Journal is an editorial space for healing, heartbreak, boundaries, identity, self-worth and all the
+        truths we finally learn how to say without apologizing.
+      </p>
+
+      <div class="slj-button-row">
+        <a href="/start-here/" class="slj-button slj-button--primary">Start Here</a>
+        <a href="/about/" class="slj-button slj-button--ghost">Meet Acacia</a>
+      </div>
     </div>
-  </div>
-</section>
 
-<section class="slj-feature-row">
-  <div class="slj-feature-card">
-    <span class="slj-feature-card__label">Healing</span>
-    <h2>Writing that makes room for truth.</h2>
-    <p>
-      Reflections on survival mode, emotional recovery, grief, self-worth, softness, and learning how to come back to
-      yourself.
-    </p>
-  </div>
-
-  <div class="slj-feature-card">
-    <span class="slj-feature-card__label">Relationships</span>
-    <h2>Love, chemistry, boundaries, and clarity.</h2>
-    <p>
-      Honest conversations about connection, heartbreak, red flags, trust, autonomy, and the difference between love and
-      control.
-    </p>
-  </div>
-
-  <div class="slj-feature-card">
-    <span class="slj-feature-card__label">Becoming</span>
-    <h2>The quiet courage of growing into yourself.</h2>
-    <p>
-      Essays about identity, change, healing out loud, and what it means to stop shrinking just to keep other people
-      comfortable.
-    </p>
-  </div>
-</section>
-
-<section class="slj-start-here">
-  <div class="slj-start-here__text">
-    <p class="slj-section-label">New here?</p>
-    <h2>Start with the heart of the journal.</h2>
-    <p>
-      Saltlight Journal is a space for emotionally honest writing about healing, relationships, identity, growth, and
-      the things we carry quietly for far too long.
-    </p>
+    <aside class="slj-landing__note">
+      <p class="slj-kicker">Editor's Note</p>
+      <p>
+        Some stories arrive softly. Some arrive with teeth. Every piece here is written with the hope that honesty can
+        feel like both recognition and relief.
+      </p>
+      <div class="slj-stat-row">
+        <div>
+          <strong>{{ site.posts | size }}</strong>
+          <span>Essays</span>
+        </div>
+        <div>
+          <strong>{{ site.categories | size }}</strong>
+          <span>Sections</span>
+        </div>
+        <div>
+          <strong>1</strong>
+          <span>Voice</span>
+        </div>
+      </div>
+    </aside>
   </div>
 
-  <div class="slj-start-here__links">
-    <a href="/about/" class="slj-start-link">Read the About page</a>
-    <a href="/categories/healing/" class="slj-start-link">Explore Healing posts</a>
-    <a href="/categories/relationships/" class="slj-start-link">Explore Relationship posts</a>
-    <a href="/categories/becoming/" class="slj-start-link">Explore Becoming posts</a>
-  </div>
+  {% if featured_post %}
+    <section class="slj-featured-story">
+      <div class="slj-featured-story__media">
+        {% if featured_post.image.path %}
+          <img
+            src="{{ featured_post.image.path | relative_url }}"
+            alt="{{ featured_post.image.alt | default: featured_post.title }}"
+          >
+        {% endif %}
+      </div>
+
+      <div class="slj-featured-story__content">
+        <p class="slj-kicker">Featured Essay</p>
+        <h2>{{ featured_post.title }}</h2>
+        {% if featured_post.subtitle %}
+          <p class="slj-featured-story__subtitle">{{ featured_post.subtitle }}</p>
+        {% endif %}
+        <p>{{ featured_post.excerpt | default: featured_post.content | strip_html | truncate: 210 }}</p>
+
+        <div class="slj-meta-row">
+          <span>{{ featured_post.date | date: '%B %-d, %&' }}</span>
+          {% if featured_post.categories %}
+            <span>{{ featured_post.categories | join: ' • ' }}</span>
+          {% endif %}
+        </div>
+
+        <a href="{{ featured_post.url | relative_url }}" class="slj-button--primary">Read the Feature</a>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if editorial_posts.size > 0 %}
+    <section class="slj-editorial-grid">
+      <div class="slj-section-heading">
+        <div>
+          <p class="slj-kicker">From the latest issue</p>
+          <h2>A more curated way into the journal.</h2>
+        </div>
+        <a href="/archives/" class="slj-text-link">Browse the Archive</a>
+      </div>
+
+      <div class="slj-card-grid">
+        {% for post in editorial_posts %}
+          <article class="slj-story-card">
+            {% if post.image.path %}
+              <a href="{{ post.url | relative_url }}" class="slj-story-card__image">
+                <img src="{{ post.image.path | relative_url }}" alt="{{ post.image.alt | default: post.title }}">
+              </a>
+            {% endif %}
+
+            <div class="slj-story-card__body">
+              <p class="slj-kicker">{{ post.date | date: '%b %-d, %Y' }}</p>
+              <h3>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h3>
+              <p>{{ post.excerpt | default: post.content | strip_html | truncate: 150 }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="slj-columns">
+    <div class="slj-columns__main">
+      <div class="slj-section-heading">
+        <div>
+          <p class="slj-kicker">Reading Paths</p>
+          <h2>Choose the doorway that fits where you are.</h2>
+        </div>
+      </div>
+
+      <div class="slj-path-grid">
+        <a href="/categories/healing" class="slj-path-card">
+          <span>Healing</span>
+          <strong>For grief, recovery, self-worth, and learning to feel safe in your own life.</strong>
+        </a>
+        <a href="/categories/relationships/" class="slj-path-card">
+          <span>Relationships</span>
+          <strong>For heartbreak, chemistry, patterns, red flags, boundaries, and clarity.</strong>
+        </a>
+        <a href="/categories/becoming/" class="slj-path-card">
+          <span>Becoming</span>
+          <strong>For identity, truth, courage, and growing into the version of you that no longer shrinks.</strong>
+        </a>
+      </div>
+    </div>
+
+    <aside class="slj-columns__side">
+      <div class="slj-pull-quote">
+        <p>Healing is rarely tidy. Truth is rarely convenient. But naming what is real changes everything.</p>
+      </div>
+
+      <div class="slj-utility-card">
+        <p class="slj-kicker">Write from the site</p>
+        <h3>Use the new editor</h3>
+        <p>Once GitHub sign-in is connected, you can go to the site admin and publish posts from your browser.</p>
+        <a href="/admin/" class="slj-text-link">Open the writer</a>
+      </div>
+    </aside>
+  </section>
+
+  <section class="slj-closing-banner">
+    <div>
+      <p class="slj-kicker">Start with the essentials</p>
+      <h2>If you are new here, begin with the pieces readers return to most.</h2>
+    </div>
+
+    <div class="slj-button-row">
+      <a href="/start-here" class="slj-button slj-button--primary">Open Start Here</a>
+      <a href="/categories/" class="slj-button slj-button--ghost">View All Categories</a>
+    </div>
+  </section>
 </section>
